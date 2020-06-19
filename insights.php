@@ -13,6 +13,7 @@ use PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer;
 use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\ParameterTypeHintSniff;
+use SlevomatCodingStandard\Sniffs\TypeHints\PropertyTypeHintSniff;
 
 return [
 
@@ -78,18 +79,28 @@ return [
         ],
         ParameterTypeHintSniff::class => [
             'exclude' => [
-                'app/Exceptions/Handler',
+                'app/Exceptions/Handler.php',
                 'app/Http/Middleware',
+            ],
+        ],
+        PropertyTypeHintSniff::class => [
+            'exclude' => [
+                'app/Console/Kernel.php',
+                'app/Exceptions/Handler.php',
+                'app/Http/Kernel.php',
+                'app/Http/Middleware',
+                'app/Models',
+                'app/Providers',
             ],
         ],
         UnusedParameterSniff::class => [
             'exclude' => [
-                'app/Console/Kernel',
+                'app/Console/Kernel.php',
             ],
         ],
         UselessOverridingMethodSniff::class => [
             'exclude' => [
-                'app/Exceptions/Handler',
+                'app/Exceptions/Handler.php',
                 'app/Providers',
             ],
         ],
