@@ -5,6 +5,7 @@ declare(strict_types=1);
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenFinalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenPrivateMethods;
+use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
 use NunoMaduro\PhpInsights\Domain\Metrics\Architecture\Classes;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UselessOverridingMethodSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterNotSniff;
@@ -56,6 +57,7 @@ return [
     'remove' => [
         DeclareStrictTypesSniff::class,
         ForbiddenNormalClasses::class,
+        ForbiddenTraits::class,
         NoEmptyCommentFixer::class,
         SpaceAfterNotSniff::class,
     ],
@@ -81,6 +83,8 @@ return [
             'exclude' => [
                 'app/Exceptions/Handler.php',
                 'app/Http/Middleware',
+                'app/Rules',
+                'app/Filters',
             ],
         ],
         PropertyTypeHintSniff::class => [
@@ -96,6 +100,10 @@ return [
         UnusedParameterSniff::class => [
             'exclude' => [
                 'app/Console/Kernel.php',
+                'app/Filters',
+                'app/Sorts',
+                'app/Notifications',
+                'app/Rules',
             ],
         ],
         UselessOverridingMethodSniff::class => [
@@ -107,4 +115,3 @@ return [
     ],
 
 ];
-
